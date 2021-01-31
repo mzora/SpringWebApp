@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>CRUD webapp</title>
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.5.2/css/bootstrap.min.css}" />
+</head>
+
+<body class="bg-light">
+
+<div class="container">
+    <div class="py-5 text-center">
+        <img class="d-inline-flex mx-auto mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+        <img class="d-inline-flex mx-auto mb-4" src="/java.svg" alt="" width="72" height="72">
+        <img class="d-inline-flex mx-auto mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+        <img class="d-inline-flex mx-auto mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+        <img class="d-inline-flex mx-auto mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+        <h2>A very, very Useful Form</h2>
+        <hr class="mb-4">
+        <p class="lead">
+            A project developed to train SpringBoot, Thymeleaf..<br>
+            Resources used:<br>
+            <a href="https://www.youtube.com/watch?v=vtPkZShrvXQ&t=3252s" target="_blank">FreecodeCamp AmigosCode lesson</a><br>
+            <a href="https://www.youtube.com/watch?v=Y_w9KjOrEXk&list=LL&index=19" target="_blank">Java Techie tutorial</a><br>
+            and many many others that i googled on the road..
+        </p>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 order-md-2 mb-4">
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-muted">Your cart</span>
+                <span class="badge badge-secondary badge-pill">3</span>
+            </h4>
+            <ul class="list-group mb-3">
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <h6 class="my-0">Product name</h6>
+                        <small class="text-muted">Brief description</small>
+                    </div>
+                    <span class="text-muted">$12</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <h6 class="my-0">Second product</h6>
+                        <small class="text-muted">Brief description</small>
+                    </div>
+                    <span class="text-muted">$8</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <h6 class="my-0">Third item</h6>
+                        <small class="text-muted">Brief description</small>
+                    </div>
+                    <span class="text-muted">$5</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between bg-light">
+                    <div class="text-success">
+                        <h6 class="my-0">Promo code</h6>
+                        <small>EXAMPLECODE</small>
+                    </div>
+                    <span class="text-success">-$5</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                    <span>Total (lt di sangue)</span>
+                    <strong>~20</strong>
+                </li>
+            </ul>
+
+            <form class="card p-2">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Promo code">
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-secondary">Redeem</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-8 order-md-1">
+            <h5 class="mb-3">A CREATE operation</h5>
+            <form id="personForm">
+                <div class="mb-3">
+                    <label for="personName">Register a NAME</label>
+                    <input type="text" class="form-control" id="personName" placeholder="un bel nome" required>
+                </div>
+                <button class="btn btn-primary btn-md btn-block" type="submit">Insert to DB</button>
+            </form>
+            <hr class="mb-4">
+
+            <h5 class="mb-3">A menu with Get/Put/Delete</h5>
+            <form id="multiForm">
+                <div class="row">
+                    <div class="col-md-5 mb-3">
+                        <label for="inlineFormCustomSelect">Operation</label>
+                        <select class="custom-select d-block w-100" id="inlineFormCustomSelect">
+                            <option value="1">Get Name by ID</option>
+                            <option value="2">Update Name on existent ID</option>
+                            <option value="3">Delete Person by ID</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Please select a valid country.
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="personId">ID reference</label>
+                        <input type="text" class="form-control" id="personId" placeholder="" value="" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="personNameToUpdate">Name to assign</label>
+                        <input type="text" class="form-control" id="personNameToUpdate" placeholder="" value="" required>
+                    </div>
+                </div>
+                <button class="btn btn-primary btn-md btn-block" type="submit">Run Operation</button>
+            </form>
+
+            <hr class="mb-4">
+
+            <h5 class="mb-3">And finally..</h5>
+            <button id="getAllPersons" class="btn btn-primary btn-lg btn-block" type="submit">Get All Persons</button>
+            <div class="mb-3" id="getResultDiv" style="padding-top: 20px">
+                <ul class="list-group">
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer class="my-5 pt-5 text-muted text-center text-small">
+        <p class="mb-1">&copy; 2015-2021 Company EsperumaBin</p>
+        <ul class="list-inline">
+            <li class="list-inline-item"><a href="#">Privacy</a></li>
+            <li class="list-inline-item"><a href="#">Terms</a></li>
+            <li class="list-inline-item"><a href="#">SupportPorFavor</a></li>
+        </ul>
+    </footer>
+</div>
+
+<script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/1.16.0/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.5.2/js/bootstrap.min.js}"></script>
+
+<script src="/getrequest.js"></script>
+<script src="/postrequest.js"></script>
+<script src="/requestonid.js"></script>
+</body>
+</html>

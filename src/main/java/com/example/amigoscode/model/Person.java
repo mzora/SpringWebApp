@@ -1,15 +1,20 @@
 package com.example.amigoscode.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
-import javax.validation.constraints.NotBlank;
 import java.util.UUID;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 public class Person {
-    private final UUID ID;
-    @NotBlank
-    private final String name;
-
+    private UUID ID;
+    private String name;
+/*
     public Person(@JsonProperty("id") UUID ID,
                   @JsonProperty("name") String name) {
         this.ID = ID;
@@ -23,4 +28,12 @@ public class Person {
     public String getName() {
         return name;
     }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "ID=" + ID +
+                ", name='" + name + '\'' +
+                '}';
+    }*/
 }

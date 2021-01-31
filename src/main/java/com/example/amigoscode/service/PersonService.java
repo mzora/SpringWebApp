@@ -14,10 +14,8 @@ import java.util.UUID;
 public class PersonService {
     private final PersonDao personDao;
 
-    //Qualifier permette di avere implementazioni multiple.
-    // Ad es. specificando mongo/postgres..
     @Autowired
-    public PersonService(@Qualifier("fakeDao") PersonDao personDao) {
+    public PersonService(@Qualifier("postgres") PersonDao personDao) {
         this.personDao = personDao;
     }
 
