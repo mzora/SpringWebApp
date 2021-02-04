@@ -1,0 +1,118 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body
+{
+    /*overflow: hidden;*/
+}
+
+div.special::before
+{
+    z-index: 15;
+}
+section
+{
+    position: absolute;
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, #0479f6, #66b845);
+}
+
+section::before
+{
+    content:'';
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    bottom: 0;
+    background: #ff0;
+    z-index: 10;
+    border-top: 1px solid rgba(255,255,255,0.5);
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+}
+
+ul.special
+{
+    position: relative;
+    display: flex;
+}
+
+ul.special li
+{
+    position: relative;
+    list-style: none;
+    margin: 10px;
+}
+ul.special li a
+{
+    position: relative;
+    top: 0;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 2em;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-right: 1px solid rgba(255,255,255,0.2);
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    border-radius: 10px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(4px);
+    z-index: 1;
+    box-shadow: 0 5px 45px rgba(0,0,0,0.1);
+    text-decoration: none;
+    overflow: hidden;
+    transition: top 0.5s, z-index 0.1s, transform 0.5s ;
+    transition-delay: 0.5s, 0s, 0s;
+}
+ul.special li a:hover
+{
+    transition-delay: 0s,0.5s,0.5s;
+    top: -40px;
+    transform: translateY(40px);
+    z-index: 11;
+}
+ul.special li a:before
+{
+    content: '';
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 50px;
+    height: 100%;
+    background: rgba(255,255,255,0.5);
+    transform: skewX(45deg) translateX(150px);
+    transition: 0.5s;
+}
+ul.special li a:hover:before
+{
+    transform: skewX(45deg) translateX(-150px);
+}
+.footer-details
+{
+    width: 400px;
+    height: 50px;
+    position: absolute;
+    bottom: 0px;
+    z-index: 15;
+    margin:auto;
+}
+.footer-details ul li a
+{
+    color: white;
+}
+.footer-details ul li a:hover
+{
+    text-decoration: none;
+}
+
+

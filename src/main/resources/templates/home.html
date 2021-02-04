@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,18 +9,19 @@
     <title>CRUD webapp</title>
 
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.5.2/css/bootstrap.min.css}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
-<body class="bg-light">
-
-<div class="container">
+<body>
+<div class="container special">
     <div class="py-5 text-center">
         <img class="d-inline-flex mx-auto mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-        <img class="d-inline-flex mx-auto mb-4" src="/java.svg" alt="" width="72" height="72">
-        <img class="d-inline-flex mx-auto mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-        <img class="d-inline-flex mx-auto mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-        <img class="d-inline-flex mx-auto mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-        <h2>A very, very Useful Form</h2>
+        <img class="d-inline-flex mx-auto mb-4" src="/img/java.svg" alt="" width="72" height="72">
+        <img class="d-inline-flex mx-auto mb-4" src="/img/springio.svg" alt="" width="72" height="72">
+        <img class="d-inline-flex mx-auto mb-4" src="/img/postgresql.svg" alt="" width="72" height="72">
+        <img class="d-inline-flex mx-auto mb-4" src="/img/thymeleaf.png" alt="" width="72" height="72">
+        <h2>A complete running Form</h2>
         <hr class="mb-4">
         <p class="lead">
             A project developed to train SpringBoot, Thymeleaf..<br>
@@ -32,8 +32,8 @@
         </p>
     </div>
 
-    <div class="row">
-        <div class="col-md-4 order-md-2 mb-4">
+    <div class="row justify-content-md-center">
+        <!--<div class="col-md-4 order-md-2 mb-4">
             <h4 class="d-flex justify-content-between align-items-center mb-3">
                 <span class="text-muted">Your cart</span>
                 <span class="badge badge-secondary badge-pill">3</span>
@@ -81,8 +81,8 @@
                     </div>
                 </div>
             </form>
-        </div>
-        <div class="col-md-8 order-md-1">
+        </div>-->
+        <div class="col-md-8">
             <h5 class="mb-3">A CREATE operation</h5>
             <form id="personForm">
                 <div class="mb-3">
@@ -113,9 +113,9 @@
                         <label for="personId">ID reference</label>
                         <input type="text" class="form-control" id="personId" placeholder="" value="" required>
                     </div>
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-6 mb-3" id="updateDiv">
                         <label for="personNameToUpdate">Name to assign</label>
-                        <input type="text" class="form-control" id="personNameToUpdate" placeholder="" value="" required>
+                        <input type="text" class="form-control" id="personNameToUpdate" placeholder="" value="">
                     </div>
                 </div>
                 <button class="btn btn-primary btn-md btn-block" type="submit">Run Operation</button>
@@ -132,22 +132,56 @@
         </div>
     </div>
 
-    <footer class="my-5 pt-5 text-muted text-center text-small">
-        <p class="mb-1">&copy; 2015-2021 Company EsperumaBin</p>
-        <ul class="list-inline">
-            <li class="list-inline-item"><a href="#">Privacy</a></li>
-            <li class="list-inline-item"><a href="#">Terms</a></li>
-            <li class="list-inline-item"><a href="#">SupportPorFavor</a></li>
-        </ul>
-    </footer>
 </div>
+<footer>
+    <section>
+        <ul class="special">
+            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i>
+            </a></li>
+            <li><a href="#"><i class="fa fa-github" aria-hidden="true"></i>
+            </a></li>
+            <li><a href="#"><i class="fa fa-free-code-camp" aria-hidden="true"></i>
+            </a></li>
+            <li><a href="#"><i class="fa fa-telegram" aria-hidden="true"></i>
+            </a></li>
+            <li><a href="#"><i class="fa fa-youtube" aria-hidden="true"></i>
+            </a></li>
+        </ul>
 
+        <div class="footer-details">
+            <!--<p class="mb-1 text-center">&copy; 2021 CompanyName</p>-->
+            <ul class="list-inline text-center">
+                <li class="list-inline-item"><a href="#">&copy; 2021 CompanyName</a></li>
+                <li class="list-inline-item"><a href="#">Privacy</a></li>
+                <li class="list-inline-item"><a href="#">Terms</a></li>
+                <li class="list-inline-item"><a href="#">Support</a></li>
+            </ul>
+        </div>
+    </section>
+</footer>
 <script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
 <script th:src="@{/webjars/popper.js/1.16.0/umd/popper.min.js}"></script>
 <script th:src="@{/webjars/bootstrap/4.5.2/js/bootstrap.min.js}"></script>
+<script>
+    $(document).ready(function(){
+        $("#updateDiv").hide();
+    })
 
-<script src="/getrequest.js"></script>
-<script src="/postrequest.js"></script>
-<script src="/requestonid.js"></script>
+    (hideShowDiv());
+
+    function hideShowDiv() {
+        $("#inlineFormCustomSelect").change(function () {
+            var val = $(this).val();
+            if (val === "1" || val === "3") {
+                $("#updateDiv").hide();
+            } else if (val === "2") {
+                $("#updateDiv").show();
+            }
+        });
+    }
+</script>
+<script src="/js/getrequest.js"></script>
+<script src="/js/postrequest.js"></script>
+<script src="/js/requestonid.js"></script>
 </body>
 </html>
